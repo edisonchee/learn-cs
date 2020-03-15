@@ -1,0 +1,36 @@
+<!-- TODO -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      {% for c in s2 %}
+        <th scope="col">{{ c }}</th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      {% for i in range(s2|length + 1) %}
+        <th scope="col">{{ i }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% set count = 0 %}
+    {% set formatted_string = " " + s1 %}
+    {% for row in matrix %}
+      <tr>
+        <th scope="row">
+          {{ formatted_string[loop.index0] }} {{ loop.index0 }}
+        </th>
+        <td></td>
+        {% for cell in row %}
+          <td>{{ cell[0] }}</td>
+        {% endfor %}
+      </tr>
+      {% set count = count + 1 %}
+    {% endfor %}
+  </tbody>
+</table>

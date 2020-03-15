@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Increase funds
+{% endblock %}
+
+{% block main %}
+    <h1>Inject funds</h1>
+    <form action="/cash" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="amount" placeholder="1000.00" type="number" step="any"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Inject</button>
+    </form>
+{% endblock %}

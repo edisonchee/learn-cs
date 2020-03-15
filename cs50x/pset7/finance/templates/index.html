@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home - Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome, {{ username }}.</h1>
+    <h2>Current cash amount: {{ available_cash }}</h2></h2>
+    <p>protip: buy low, sell high</p>
+
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Stock Symbol</th>
+          <th scope="col">Shares Owned</th>
+          <th scope="col">Current Price</th>
+          <th scope="col">Total Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for stock in stocks %}
+            {% if stock["total(count)"] == 0 %}
+            {% else %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ stock["symbol"] }}</td>
+                <td>{{ stock["total(count)"] }}</td>
+                <td>{{ stock["price"] }}</td>
+                <td>{{ stock["total_cost"] }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+    <h2>Grand Total: {{ grand_total }}</h2></h2>
+{% endblock %}
